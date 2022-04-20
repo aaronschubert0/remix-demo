@@ -7,6 +7,16 @@ const handleRequest = createPagesFunctionHandler({
   getLoadContext: (context) => context.env,
 });
 
-export function onRequest(context) {
-  return handleRequest(context);
+export async function onRequest(context) {
+  const url = new URL(context.request.url);
+  if (
+    url.pathname.startsWith("/test-remix") ||
+    url.pathname.startsWith("/remix")
+  ) {
+    return handleRequest(context);
+  } else {
+    const { pathname, search } = url;
+    const response = await fetch(`https://folksy.com` + pathname + search);
+    return response;
+  }
 }

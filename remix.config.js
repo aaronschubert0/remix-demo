@@ -7,7 +7,7 @@ module.exports = {
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: [".*"],
   // appDirectory: "app",
-  // assetsBuildDirectory: "public/build",
+  assetsBuildDirectory: "public/remix/build",
   // serverBuildPath: "functions/[[path]].js",
-  // publicPath: "/build/",
+  publicPath: "/remix/build/",
 };
